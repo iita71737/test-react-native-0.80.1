@@ -32,4 +32,11 @@ target 'AwesomeProject' do
       # :ccache_enabled => true
     )
   end
+
+    # FIREBASE
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  $RNFirebaseAsStaticFramework = true
+  
 end
