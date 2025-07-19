@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rexml', '~> 3.2.5'
+
 # You may use http://rbenv.org/ or https://rvm.io/ to install and use this version
 ruby ">= 2.6.10"
 
