@@ -17,7 +17,6 @@ import {
   WsTabView,
   WsPopup
 } from '@/components'
-// import Modal from 'react-native-modal'
 import { images } from '@/__reactnative_stone/assets/img'
 import $color from '@/__reactnative_stone/global/color'
 import i18next from 'i18next'
@@ -53,42 +52,7 @@ const LlFilesAndImagesPickerModal = props => {
   } = props
 
   const [tabIndex, settabIndex] = React.useState(0)
-  const [tabItems, setTabItems] = React.useState([
-    {
-      value: 'TabUploadFromLocalFile',
-      label: i18next.t('自本地上傳檔案'),
-      view: TabUploadFromLocalFile,
-      props: {
-        onClose: onClose,
-        onUploadComplete: onUploadFromLocalComplete,
-        oneFile: oneFile,
-        modelName: modelName,
-        limitFileExtension: limitFileExtension
-      }
-    },
-    {
-      value: 'TabUploadFromFileStore',
-      label: i18next.t('選擇來自檔案庫的檔案'),
-      view: TabUploadFromFileStore,
-      props: {
-        onClose: onClose,
-        onUploadFromFileStoreComplete: onUploadFromFileStoreComplete,
-        oneFile: oneFile,
-        limitFileExtension: limitFileExtension
-      }
-    },
-    {
-      value: 'LlUploadFromOtherUnit',
-      label: i18next.t('選擇來自其他單位的檔案'),
-      view: TabUploadFromOtherFileStore,
-      props: {
-        onClose: onClose,
-        onUploadFromOtherFileStoreComplete: onUploadFromOtherFileStoreComplete,
-        oneFile: oneFile,
-        limitFileExtension: limitFileExtension
-      }
-    }
-  ])
+  const [tabItems, setTabItems] = React.useState()
 
   const $_setTabItems = () => {
     setTabItems([
@@ -136,33 +100,37 @@ const LlFilesAndImagesPickerModal = props => {
     $_setTabItems()
   }, [value])
 
+
   return (
-    <WsPopup
-      active={isVisible}
-      onClose={onClose}
-      closeOnBackdropPress={false}
-    >
-      <View
-        style={{
-          width: width * 0.9,
-          height: height * 0.8,
-          backgroundColor: $color.white,
-          borderRadius: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-          paddingTop: 16
-        }}>
-        {tabItems && (
-          <WsTabView
-            index={tabIndex}
-            setIndex={settabIndex}
-            items={tabItems}
-            scrollEnabled={true}
-            pointerVisible={true}
-          />
-        )}
-      </View>
-    </WsPopup>
+    <>
+      <WsPopup
+        active={isVisible}
+        onClose={onClose}
+        closeOnBackdropPress={false}
+      >
+        <View
+          style={{
+            width: width * 0.9,
+            height: height * 0.8,
+            backgroundColor: $color.white,
+            borderRadius: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingTop: 16,
+          }}
+        >
+          {tabItems && (
+            <WsTabView
+              index={tabIndex}
+              setIndex={settabIndex}
+              items={tabItems}
+              // scrollEnabled={true} // 250723-issue-blank
+              pointerVisible={true}
+            />
+          )}
+        </View>
+      </WsPopup>
+    </>
   )
 }
 export default LlFilesAndImagesPickerModal

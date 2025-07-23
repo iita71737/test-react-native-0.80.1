@@ -17,7 +17,6 @@ import {
   WsIcon,
   WsIconCircle,
   WsFastImage,
-  WsStateFilesAndImagesPickerModal,
   WsUpdateBtn,
   WsGrid,
   WsStateFileItem,
@@ -40,7 +39,6 @@ import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import RNFS from 'react-native-fs'
 import { Camera, useCameraDevice } from 'react-native-vision-camera'
 import { useNavigation } from '@react-navigation/native'
-import Modal from 'react-native-modal'
 import { pick } from '@react-native-documents/picker'
 import LlFilesAndImagesPickerModal from '@/views/File/LlFilesAndImagesPickerModal'
 import S_File from '@/services/api/v1/file'
@@ -71,11 +69,7 @@ const LlFilesAndImagesPicker = props => {
 
   // States
   const [loadingProgress, setLoadingProgress] = useState(false)
-  const [fileDurationExceed, setFileDurationExceed] = useState(false)
-  const [fileSizeExceed, setFileSizeExceed] = useState(false)
   const [visible, setVisible] = useState(false)
-  const [recordingModalVisible, setRecordingModalVisible] = useState(false)
-  const [fileStoreModalVisible, setFileStoreModalVisible] = useState(false)
 
   const [checkDeleteModalVisible, setCheckDeleteModalVisible] = useState(false)
   const [checkDeleteModalContent, setCheckDeleteModalContent] = useState('對此檔案無刪除權限，僅可以移除關聯，確定要移除與此檔案的關聯嗎？')
@@ -340,8 +334,7 @@ const LlFilesAndImagesPicker = props => {
             onUploadFromOtherFileStoreComplete(files, relatedVersion)
           }}
         ></LlFilesAndImagesPickerModal>
-      )
-      }
+      )}
 
       {value != '' && value != null && (
         <WsGrid
@@ -401,20 +394,6 @@ const LlFilesAndImagesPicker = props => {
           >
             {uploadBtnText ? uploadBtnText : t('上傳')}
           </WsUpdateBtn>
-          {/* 250526-task */}
-          {/* <WsDes
-            color={fileSizeExceed ? $color.danger : $color.gray}
-            style={{
-              paddingTop: 8
-            }}>
-            {`${t('檔案大小限制')} ≤ 30MB`}
-          </WsDes>
-          <WsDes
-            color={fileDurationExceed ? $color.danger : $color.gray}
-            style={{
-            }}>
-            {`${t('影像長度限制')} ≤ ${t('{{number}}分鐘', { number: 3 })}`}
-          </WsDes> */}
         </>
       )}
 

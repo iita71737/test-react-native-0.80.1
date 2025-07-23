@@ -1,5 +1,6 @@
 import React from 'react'
-import Switch from 'react-native-switch-pro'
+// import Switch from 'react-native-switch-pro'
+import {Switch, StyleSheet} from 'react-native';
 import $color from '@/__reactnative_stone/global/color'
 
 const WsSwitch = props => {

@@ -58,7 +58,6 @@ const WsTabView = props => {
       <View
         style={{
           marginTop: 60,
-          // borderWidth:1,
           flexDirection: 'row',
           justifyContent: 'space-between',
         }}>
@@ -164,16 +163,11 @@ const WsTabView = props => {
   const [isMounted, setIsMounted] = React.useState(false)
   const [C_index, C_setIndex] = React.useState(index)
 
-  const $_onLayout = $event => {
-    // console.log($event, '$event');
-  }
 
   // Variable
   const renderScene = useCallback(({ route }) => {
     const itemIndex = items.findIndex(e => e.value == route.key);
-    if (itemIndex === -1 || itemIndex !== index) {
-      return null; // 注意返回 null 而不是 undefined，确保返回值的一致性
-    }
+    if (itemIndex === -1) return null;
     const item = items[itemIndex];
     const _view = itemsViews ? itemsViews[itemIndex].view : item.view;
 
@@ -232,10 +226,10 @@ const WsTabView = props => {
   // Render
   return (
     <View
-      onLayout={$_onLayout}
       style={{
         flex: 1,
-      }}>
+      }}
+    >
       {isMounted && (
         <TabView
           animationEnabled={animationEnabled}
@@ -250,7 +244,7 @@ const WsTabView = props => {
             tabStyle
           ]
           }
-          navigationState={{ index, routes, items }}
+          navigationState={{ index, routes }}
           onIndexChange={$event => {
             if ($event == 9223372036854776000) {
               console.log($event, '$event');

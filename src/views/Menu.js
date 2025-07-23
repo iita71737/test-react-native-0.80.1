@@ -50,7 +50,7 @@ const Menu = ({ navigation }) => {
 
   // States
   const [deviceToken, setDeviceToken] = React.useState()
-  // console.log(deviceToken, '=deviceToken=');
+  // console.log(deviceToken, '=deviceToken-=');
   // console.log(Config.API_URL,'Config.API_URL--');
 
   // VersionCheck.getCountry()

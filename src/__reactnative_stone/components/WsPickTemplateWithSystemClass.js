@@ -154,7 +154,7 @@ const WsPickTemplateWithSystemClass = props => {
                       {systemClass.system_subclasses.map((subClass, index) => {
                         return (
                           <View
-                            key={subClass.id}
+                            key={index}
                             style={{
                               // borderWidth:2,
                             }}
@@ -192,9 +192,14 @@ const WsPickTemplateWithSystemClass = props => {
                                 </WsText>
                               </WsFlex>
                               {subClass.templates.length > 0 &&
-                                subClass.templates.map(item => {
+                                subClass.templates.map((item, index) => {
                                   if (item.name !== "") {
-                                    return <FlatListRenderCom {...item} />
+                                    return (
+                                      <FlatListRenderCom
+                                        key={item.id || index}
+                                        {...item}
+                                      />
+                                    )
                                   } else {
                                     return <LlTemplatesCard001
                                       fontColor={$color.gray}

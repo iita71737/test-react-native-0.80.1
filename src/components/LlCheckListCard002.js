@@ -13,7 +13,8 @@ import {
   WsInfo,
   WsAvatar,
   WsPopup,
-  WsGradientButton
+  WsGradientButton,
+  WsDes
 } from '@/components'
 import LlBtn001 from '@/components/LlBtn001'
 import $color from '@/__reactnative_stone/global/color'

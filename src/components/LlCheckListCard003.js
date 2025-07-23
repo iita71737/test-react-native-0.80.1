@@ -79,7 +79,7 @@ const LlCheckListCard003 = (props) => {
 
         <WsSpec
           fontWeight={600}
-          labelWidth={64}
+          labelWidth={108}
           style={{
             marginTop: 8,
           }}
@@ -93,7 +93,7 @@ const LlCheckListCard003 = (props) => {
             <>
               <WsSpec
                 fontWeight={600}
-                labelWidth={64}
+                labelWidth={108}
                 style={{
                   marginTop: 8,
                 }}

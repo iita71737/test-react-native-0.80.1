@@ -54,7 +54,6 @@ import { useNavigation } from '@react-navigation/native'
 import S_AuditTemplates from '@/services/api/v1/audit_template'
 import S_AuditQuestionTemplate from '@/services/api/v1/audit_question_template'
 import S_Audit from '@/services/api/v1/audit'
-import { parser } from 'react-native-markdown-display'
 import S_AuditQuestion from '@/services/api/v1/audit_question'
 
 const AuditTemplateShow = ({ route }) => {

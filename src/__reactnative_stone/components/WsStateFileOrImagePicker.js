@@ -65,7 +65,6 @@ const WsStateFileOrImagePicker = props => {
   const [fileDurationExceed, setFileDurationExceed] = useState(false)
   const [fileSizeExceed, setFileSizeExceed] = useState(false)
   const [recordingModalVisible, setRecordingModalVisible] = useState(false)
-  const [fileStoreModalVisible, setFileStoreModalVisible] = useState(false)
 
   // Recording
   const $_onRecordingPress = () => {
@@ -464,7 +463,6 @@ const WsStateFileOrImagePicker = props => {
   // FILE STORE
   const $_onPressFileStore = () => {
     setVisible(false)
-    setFileStoreModalVisible(true)
   }
 
   // validation 

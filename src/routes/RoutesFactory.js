@@ -212,11 +212,10 @@ const RoutesFactory = ({ navigation, route }) => {
         optimizationsEnabled={true}
         unmountOnBlur={true}
         initialRouteName={'MyIndex'}
-        tabBarOptions={{
+        screenOptions={({ route }) => ({
+          headerShown: false,
           activeTintColor: $color.primary,
           showLabel: false,
-        }}
-        screenOptions={({ route }) => ({
           tabBarVisible: setRoutesMenuTabBarVisible(route),
           tabBarButton: [
             "RoutesCheckList",

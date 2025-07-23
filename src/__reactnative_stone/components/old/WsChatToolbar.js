@@ -92,9 +92,10 @@ const WsChatToolbar = ({
 
   // Effect
   useEffect(() => {
-    Keyboard.addListener('keyboardDidHide', $_onKeyboardDidHide);
+    const subscription = Keyboard.addListener('keyboardDidHide', $_onKeyboardDidHide)
+
     return () => {
-      Keyboard.removeListener('keyboardDidHide')
+      subscription.remove() // ✅ 正確移除方式
     }
   }, [])
 

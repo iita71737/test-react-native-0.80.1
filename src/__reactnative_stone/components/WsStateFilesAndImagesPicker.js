@@ -37,7 +37,6 @@ import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import RNFS from 'react-native-fs'
 import { Camera, useCameraDevice } from 'react-native-vision-camera'
 import { useNavigation } from '@react-navigation/native'
-import Modal from 'react-native-modal'
 import HeicConverter from 'react-native-heic-converter';
 
 const WsStateFilesAndImagesPicker = props => {
@@ -66,7 +65,6 @@ const WsStateFilesAndImagesPicker = props => {
   const [fileSizeExceed, setFileSizeExceed] = useState(false)
   const [visible, setVisible] = useState(false)
   const [recordingModalVisible, setRecordingModalVisible] = useState(false)
-  const [fileStoreModalVisible, setFileStoreModalVisible] = useState(false)
 
   // RECORDING
   const $_onRecordingPress = () => {
@@ -558,7 +556,6 @@ const WsStateFilesAndImagesPicker = props => {
   // FILE STORE
   const $_onPressFileStore = () => {
     setVisible(false)
-    setFileStoreModalVisible(true)
   }
 
   React.useEffect(() => {
@@ -595,6 +592,7 @@ const WsStateFilesAndImagesPicker = props => {
         />
       )
       }
+
       {value != '' && value != null && (
         <WsGrid
           style={{

@@ -54,7 +54,7 @@ export default {
             console.log('Request canceled', err.message);
           }
           // 詳細錯誤處理
-          if (err.response) {
+          if (err?.response) {
             // 請求已發出，伺服器回應了狀態碼，但狀態碼不在 2xx 範圍內
             console.error('Error Response Data:', err.response.data);
             console.error('Error Response Status:', err.response.status);

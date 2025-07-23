@@ -7,7 +7,8 @@ import {
   Button,
   Dimensions,
   TouchableOpacity,
-  Linking
+  Linking,
+  InteractionManager
 } from 'react-native'
 import { Provider } from 'react-redux'
 import store from '@/store'
@@ -15,16 +16,10 @@ import RoutesMain from '@/__reactnative_stone/routes/RoutesMain'
 import G_i18n from '@/__reactnative_stone/global/i18n'
 import Config from "react-native-config";
 import { LogBox } from 'react-native'
-// LogBox.ignoreLogs(['Require cycle:'])
-// LogBox.ignoreLogs(['Reanimated 2'])
-// LogBox.ignoreLogs([
-//   "ViewPropTypes will be removed",
-//   "ColorPropType will be removed",
-//   "PointPropType will be removed",
-//   "EdgeInsetsPropType will be removed"])
-// if (Config.DETOX_TEST) {
-//   LogBox.ignoreAllLogs(true);
-// }
+LogBox.ignoreLogs([
+  'VirtualizedLists should never be nested',
+  /Require cycle:.*audit_question/,
+]);
 // import codePush from 'react-native-code-push'
 import {
   WsLoading,
@@ -70,6 +65,9 @@ import BootSplash from "react-native-bootsplash";
 import VersionCheck from 'react-native-version-check';
 G_i18n.i18nInit()
 
+import * as AllComponents from '@/components'
+console.log(AllComponents) // 看有沒有 WsPopup
+
 function App(): JSX.Element {
   const { t, i18n } = useTranslation()
   const info = useNetInfo()
@@ -111,7 +109,7 @@ function App(): JSX.Element {
           currentVersion,
           latestVersion,
         })
-        const _check = res.isNeeded
+        const _check = res?.isNeeded
         if (_check) {
           setStopUsingAlertVisible(true);
           Linking.openURL(url);
@@ -195,10 +193,16 @@ function App(): JSX.Element {
 
   React.useEffect(() => {
     $_setApiUrl()
-    BootSplash.hide();
-    // CODE PUSH INIT
-    $_init()
-  }, []);
+
+    const interactionHandle = InteractionManager.runAfterInteractions(() => {
+      BootSplash.hide({ fade: true }).catch(console.warn)
+      $_init()
+    })
+
+    return () => {
+      interactionHandle.cancel?.()
+    }
+  }, [])
 
   return (
     <>

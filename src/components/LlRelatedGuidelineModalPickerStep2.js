@@ -24,7 +24,6 @@ import {
   WsGradientButton,
   WsModal
 } from '@/components'
-import Modal from 'react-native-modal'
 import { images } from '@/__reactnative_stone/assets/img'
 import $color from '@/__reactnative_stone/global/color'
 import i18next from 'i18next'

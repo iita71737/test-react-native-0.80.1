@@ -158,11 +158,9 @@ const RoutesApp = ({ navigation, route }) => {
       >
 
         <StackSetting.Navigator
-          tabBarOptions={{
-            activeTintColor: $color.primary,
-            showLabel: false
-          }}
           screenOptions={({ route }) => ({
+            activeTintColor: $color.primary,
+            showLabel: false,
             tabBarVisible: setRoutesMenuTabBarVisible(route),
             tabBarButton: [
               'RoutesCheckList',

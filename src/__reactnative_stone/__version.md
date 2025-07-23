@@ -1,4 +1,4 @@
-v0.72.4.28.7
+v0.80.1.1.1
 
 # yarn add geolib
 # yarn add react-native-android-open-settings

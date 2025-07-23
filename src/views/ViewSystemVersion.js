@@ -40,7 +40,6 @@ import { getCurrentUser } from '@/store/data'
 import S_API_Auth from '@/__reactnative_stone/services/api/v1/auth'
 import DeviceInfo from 'react-native-device-info';
 import axios from 'axios'
-import MarkdownDisplay from 'react-native-markdown-display'
 import S_OtherData from '@/services/api/v1/other_data'
 
 const ViewSystemVersion = ({ navigation }) => {

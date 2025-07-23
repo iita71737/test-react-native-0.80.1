@@ -37,7 +37,6 @@ import { useIsFocused } from '@react-navigation/native';
 import S_SubTask from '@/services/api/v1/sub_task'
 import S_Task from '@/services/api/v1/task'
 import S_Init from '@/__reactnative_stone/services/app/Init'
-import messaging from '@react-native-firebase/messaging'
 import { setIdleCounter } from '@/store/data';
 import { useNavigationState } from '@react-navigation/native';
 import S_QRcode from '@/services/api/v1/qrcode'

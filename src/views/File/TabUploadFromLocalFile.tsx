@@ -159,7 +159,7 @@ const TabUploadFromFileStore: React.FC<TabUploadFromFileStoreProps> = (props) =>
             flex: 1,
             backgroundColor: $color.white,
             borderRadius: 10,
-            paddingHorizontal: 16
+            paddingHorizontal: 16,
           }}>
           {remind && (
             <>

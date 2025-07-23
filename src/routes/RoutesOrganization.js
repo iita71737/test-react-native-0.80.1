@@ -61,11 +61,10 @@ const RoutesOrganization = () => {
       <Tab.Navigator
         // lazy={false}
         initialRouteName={'RoutesMenu'}
-        tabBarOptions={{
-          activeTintColor: $color.primary,
-          showLabel: false
-        }}
         screenOptions={({ route }) => ({
+          headerShown: false,
+          activeTintColor: $color.primary,
+          showLabel: false,
           tabBarVisible: setRoutesMenuTabBarVisible(route),
           tabBarButton: [
             'ViewsOrganizationDashboard',
