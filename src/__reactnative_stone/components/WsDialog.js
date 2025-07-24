@@ -77,7 +77,7 @@ const WsDialog = props => {
                 style={{
                   position: 'absolute',
                   right: 16,
-                  top:16,
+                  top: 16,
                 }}
                 onPress={() => {
                   setDialogVisible(false)
@@ -238,7 +238,7 @@ const WsDialog = props => {
               fontWeight: 'normal',
               fontSize: 18,
               alignSelf: 'flex-start',
-              marginBottom:16,
+              marginBottom: 16,
             }}
           >
             {title}

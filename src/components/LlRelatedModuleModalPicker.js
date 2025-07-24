@@ -650,6 +650,7 @@ const LlRelatedModuleModalPicker = props => {
           fetchItems.map((_item, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 style={{
                   borderRadius: 10,
                   borderWidth: 1,
